@@ -1,2 +1,0 @@
-# InterestingElephant.github.io
-Portfolio
