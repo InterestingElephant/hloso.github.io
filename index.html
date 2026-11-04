@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harlan Gregg Loso | Mechanical Engineering Portfolio</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --bg-light: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--secondary);
+            display: inline-block;
+            padding-bottom: 0.3rem;
+        }
+
+        .about {
+            margin-bottom: 3rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .tag-container {
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: #eee;
+            color: var(--text-light);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin: 0.2rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--primary);
+            color: white;
+        }
+
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Harlan Gregg Loso</h1>
+        <p>Mechanical Engineering Student | University of Utah</p>
+    </header>
+
+    <div class="container">
+        <section class="about">
+            <h2 class="section-title">About Me</h2>
+            <p>I am a mechanical engineering student bridging the gap between theoretical design and hands-on fabrication. With a background rooted in complex automotive retrofitting and precision physical manufacturing, I specialize in bringing CAD models into the physical world under strict constraints.</p>
+        </section>
+
+        <h2 class="section-title">Engineering Projects</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>Baja SAE Front Suspension</h3>
+                <p>Designed and fabricated the front double wishbone suspension system for the University of Utah Baja SAE team vehicle. Focused on optimizing kinematics, structural integrity, and manufacturability for harsh off-road endurance environments.</p>
+                <div class="tag-container">
+                    <span class="tag">Suspension Kinematics</span>
+                    <span class="tag">CAD</span>
+                    <span class="tag">Machining</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>1989 Subaru GL Engine Swap</h3>
+                <p>Engineered a fuel-injected engine swap on a classic chassis. Designed a custom transmission adapter plate, modified engine mounts, engineered a custom exhaust system, and integrated modern wiring harnesses in a limited-resource environment.</p>
+                <div class="tag-container">
+                    <span class="tag">Automotive Fabrication</span>
+                    <span class="tag">Welding</span>
+                    <span class="tag">Systems Integration</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Custom Centrifugal Pump</h3>
+                <p>Designed and prototyped a 1:12 gear ratio centrifugal liquid pump for ME EN 1000. Utilized FDM 3D printing to create a custom housing and semi-open PLA impeller, calculating specific dimensions for press-fit bearing tolerances and D-shaft integration.</p>
+                <div class="tag-container">
+                    <span class="tag">Fluid Dynamics</span>
+                    <span class="tag">Rapid Prototyping</span>
+                    <span class="tag">Tolerancing</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Telemetry Weather Station</h3>
+                <p>Built a Raspberry Pi-powered mini-weather station featuring a custom-designed radiation shield and environmental housing. Deployed a live data website to track and broadcast local atmospheric metrics.</p>
+                <div class="tag-container">
+                    <span class="tag">Microcontrollers</span>
+                    <span class="tag">Hardware Housing</span>
+                    <span class="tag">Data Logging</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <p><strong>Hardware & Fabrication:</strong> Custom Automotive Modification, Engine Management Diagnostics, Manual Machining, TIG/MIG Welding, FDM 3D Printing (PLA)</p>
+            <p><strong>Software & Tools:</strong> SolidWorks, AutoCAD, Oracle VirtualBox / VMware, EcuFlash, RomRaider, Microsoft Office Suite</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>Connect with me on <a href="https://linkedin.com/in/yourprofile" target="_blank" style="color: white; text-decoration: underline;">LinkedIn</a> or view my code on <a href="https://github.com/yourusername" target="_blank" style="color: white; text-decoration: underline;">GitHub</a>.</p>
+        <p>&copy; 2026 Harlan Gregg Loso</p>
+    </footer>
+
+</body>
+</html>
