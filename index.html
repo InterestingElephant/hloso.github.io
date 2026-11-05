@@ -3,187 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harlan Gregg Loso | Mechanical Engineering Portfolio</title>
+    <title>Harlan Gregg Loso | Mechanical Engineering</title>
+    <!-- Importing a premium, modern geometric font -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #e74c3c;
-            --bg-light: #f8f9fa;
-            --text-dark: #333;
-            --text-light: #666;
+            --bg-color: #0a0a0a;
+            --surface-color: #161616;
+            --border-color: #333333;
+            --text-main: #f0f0f0;
+            --text-muted: #888888;
+            --accent: #ff4a00; /* Safety orange for an engineering/industrial vibe */
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
+            overflow-x: hidden;
         }
 
+        /* Technical Grid Background for the Header */
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 4rem 2rem;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 2rem;
+            background-image: 
+                linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 1)),
+                linear-gradient(to right, #1f1f1f 1px, transparent 1px),
+                linear-gradient(to bottom, #1f1f1f 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            border-bottom: 1px solid var(--border-color);
+            animation: fadeIn 1.5s ease-out;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        header h1 span {
+            color: var(--accent);
         }
 
         header p {
             font-size: 1.2rem;
-            color: #bdc3c7;
+            font-weight: 300;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 6rem 2rem;
         }
 
         .section-title {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--secondary);
-            display: inline-block;
-            padding-bottom: 0.3rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: var(--border-color);
         }
 
         .about {
-            margin-bottom: 3rem;
+            margin-bottom: 6rem;
+            max-width: 800px;
+        }
+
+        .about p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 300;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            margin-bottom: 3rem;
+            margin-bottom: 6rem;
         }
 
         .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 1.5rem;
-            transition: transform 0.2s ease;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
+            border-color: var(--accent);
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 74, 0, 0.05);
         }
 
         .card h3 {
-            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 600;
             margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
         }
 
         .tag-container {
-            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .tag {
-            background-color: #eee;
-            color: var(--text-light);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-group h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             font-size: 0.85rem;
-            display: inline-block;
-            margin: 0.2rem 0;
+        }
+
+        .skill-group p {
+            color: var(--text-muted);
+            font-weight: 300;
         }
 
         footer {
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 2rem;
             text-align: center;
-            padding: 2rem;
-            background-color: var(--primary);
-            color: white;
+            background-color: var(--surface-color);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
         }
 
         a {
-            color: var(--secondary);
+            color: var(--text-main);
             text-decoration: none;
+            position: relative;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: var(--accent);
+        }
+
+        /* Smooth fade-in animation for load */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-up {
+            animation: fadeIn 1s ease-out forwards;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Harlan Gregg Loso</h1>
-        <p>Mechanical Engineering Student | University of Utah</p>
+        <h1>Harlan Gregg <span>Loso</span></h1>
+        <p>Mechanical Engineering & Fabrication</p>
     </header>
 
-    <div class="container">
+    <div class="container animate-up">
         <section class="about">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">01 // Profile</h2>
             <p>I am a mechanical engineering student bridging the gap between theoretical design and hands-on fabrication. With a background rooted in complex automotive retrofitting and precision physical manufacturing, I specialize in bringing CAD models into the physical world under strict constraints.</p>
         </section>
 
-        <h2 class="section-title">Engineering Projects</h2>
-        
-        <div class="grid">
-            <div class="card">
-                <h3>Baja SAE Front Suspension</h3>
-                <p>Designed and fabricated the front double wishbone suspension system for the University of Utah Baja SAE team vehicle. Focused on optimizing kinematics, structural integrity, and manufacturability for harsh off-road endurance environments.</p>
-                <div class="tag-container">
-                    <span class="tag">Suspension Kinematics</span>
-                    <span class="tag">CAD</span>
-                    <span class="tag">Machining</span>
+        <section class="projects">
+            <h2 class="section-title">02 // Hardware & Systems</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Baja SAE Front Suspension</h3>
+                    <p>Designed and fabricated the front double wishbone suspension system for the University of Utah Baja SAE team vehicle. Focused on optimizing kinematics, structural integrity, and manufacturability for harsh off-road endurance environments.</p>
+                    <div class="tag-container">
+                        <span class="tag">Suspension Kinematics</span>
+                        <span class="tag">CAD</span>
+                        <span class="tag">Machining</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>1989 Subaru GL Engine Swap</h3>
-                <p>Engineered a fuel-injected engine swap on a classic chassis. Designed a custom transmission adapter plate, modified engine mounts, engineered a custom exhaust system, and integrated modern wiring harnesses in a limited-resource environment.</p>
-                <div class="tag-container">
-                    <span class="tag">Automotive Fabrication</span>
-                    <span class="tag">Welding</span>
-                    <span class="tag">Systems Integration</span>
+                <div class="card">
+                    <h3>1989 Subaru GL Engine Swap</h3>
+                    <p>Engineered a fuel-injected engine swap on a classic chassis. Designed a custom transmission adapter plate, modified engine mounts, engineered a custom exhaust system, and integrated modern wiring harnesses in a limited-resource environment.</p>
+                    <div class="tag-container">
+                        <span class="tag">Automotive Fabrication</span>
+                        <span class="tag">Welding</span>
+                        <span class="tag">Systems Integration</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>Custom Centrifugal Pump</h3>
-                <p>Designed and prototyped a 1:12 gear ratio centrifugal liquid pump for ME EN 1000. Utilized FDM 3D printing to create a custom housing and semi-open PLA impeller, calculating specific dimensions for press-fit bearing tolerances and D-shaft integration.</p>
-                <div class="tag-container">
-                    <span class="tag">Fluid Dynamics</span>
-                    <span class="tag">Rapid Prototyping</span>
-                    <span class="tag">Tolerancing</span>
+                <div class="card">
+                    <h3>Custom Centrifugal Pump</h3>
+                    <p>Designed and prototyped a 1:12 gear ratio centrifugal liquid pump for ME EN 1000. Utilized FDM 3D printing to create a custom housing and semi-open PLA impeller, calculating specific dimensions for press-fit bearing tolerances and D-shaft integration.</p>
+                    <div class="tag-container">
+                        <span class="tag">Fluid Dynamics</span>
+                        <span class="tag">Rapid Prototyping</span>
+                        <span class="tag">Tolerancing</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>Telemetry Weather Station</h3>
-                <p>Built a Raspberry Pi-powered mini-weather station featuring a custom-designed radiation shield and environmental housing. Deployed a live data website to track and broadcast local atmospheric metrics.</p>
-                <div class="tag-container">
-                    <span class="tag">Microcontrollers</span>
-                    <span class="tag">Hardware Housing</span>
-                    <span class="tag">Data Logging</span>
+                <div class="card">
+                    <h3>Telemetry Weather Station</h3>
+                    <p>Built a Raspberry Pi-powered mini-weather station featuring a custom-designed radiation shield and environmental housing. Deployed a live data website to track and broadcast local atmospheric metrics.</p>
+                    <div class="tag-container">
+                        <span class="tag">Microcontrollers</span>
+                        <span class="tag">Hardware Housing</span>
+                        <span class="tag">Data Logging</span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <section class="skills">
-            <h2 class="section-title">Technical Skills</h2>
-            <p><strong>Hardware & Fabrication:</strong> Custom Automotive Modification, Engine Management Diagnostics, Manual Machining, TIG/MIG Welding, FDM 3D Printing (PLA)</p>
-            <p><strong>Software & Tools:</strong> SolidWorks, AutoCAD, Oracle VirtualBox / VMware, EcuFlash, RomRaider, Microsoft Office Suite</p>
+            <h2 class="section-title">03 // Technical Arsenal</h2>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h4>Fabrication & Hardware</h4>
+                    <p>Custom Automotive Modification, Engine Management Diagnostics, Manual Machining, TIG/MIG Welding, FDM 3D Printing (PLA)</p>
+                </div>
+                <div class="skill-group">
+                    <h4>Software & Diagnostics</h4>
+                    <p>SolidWorks, AutoCAD, Oracle VirtualBox / VMware, EcuFlash, RomRaider, Microsoft Office Suite</p>
+                </div>
+            </div>
         </section>
     </div>
 
     <footer>
-        <p>Connect with me on <a href="https://linkedin.com/in/yourprofile" target="_blank" style="color: white; text-decoration: underline;">LinkedIn</a> or view my code on <a href="https://github.com/yourusername" target="_blank" style="color: white; text-decoration: underline;">GitHub</a>.</p>
-        <p>&copy; 2026 Harlan Gregg Loso</p>
+        <p>Connect on <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> or inspect the code on <a href="https://github.com/yourusername" target="_blank">GitHub</a>.</p>
+        <p style="font-size: 0.8rem; color: #555;">&copy; 2026 Harlan Gregg Loso // Hosted via GitHub Pages</p>
     </footer>
 
 </body>
